@@ -30,7 +30,7 @@ if ext in formats:
         case "mp3":
             ext = f"ba -x --audio-format {ext}"
         case "mp4":
-            ext = f"bv*+ba/b -x --audio-format {ext}"
+            ext = f"bv*+ba/b {ext}"
 else:
     quit()
 
