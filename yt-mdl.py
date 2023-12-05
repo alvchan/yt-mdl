@@ -30,7 +30,7 @@ if ext in formats:
         case "mp3":
             ext = f"ba -x --audio-format {ext}"
         case "mp4":
-            ext = f"bv*+ba/b {ext}"
+            ext = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
 else:
     quit()
 
