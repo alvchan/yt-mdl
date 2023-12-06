@@ -1,4 +1,5 @@
 import os
+import sys
 
 formats = ["mp3", "mp4"]
 
@@ -34,8 +35,14 @@ if ext in formats:
 else:
     quit()
 
+path = sys.executable  # maybe don't leave this exposed
+if os.name == "posix":
+    path = path[:path.rfind("/")] + "/yt-dlp"
+elif os.name == "nt":
+    path = path[:path.rfind("\\")] + "\yt-dlp"  # \ may be error prone
+
 for url in urls:
-    os.system(f"python3 yt-dlp -f {ext} --no-warnings -u {username} -p {password} --cookies config/cookies.txt {url} -o 'files/%(title)s.%(ext)s'")
+    os.system(f"python3 {path} -f {ext} --no-warnings -u {username} -p {password} --cookies config/cookies.txt {url} -o 'files/%(title)s.%(ext)s'")
 
 for file in os.listdir("files"):
     if os.path.isfile(file):
