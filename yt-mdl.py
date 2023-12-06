@@ -11,8 +11,8 @@ with open("config/cookies.txt", "a+"):
 with open("config/urls.txt", "a+"):
     print("urls.txt loaded.")
 
-with open("config/userdata.txt") as userdata_file:
-    userdata = userdata_file.read().splitlines()
+with open("config/userdata.txt") as f:
+    userdata = f.read().splitlines()
 
     if len(userdata) == 2:
         username = userdata[0]
@@ -21,8 +21,8 @@ with open("config/userdata.txt") as userdata_file:
         username = spoof
         password = idsoft
 
-with open("config/urls.txt") as urls_file:
-    urls = urls_file.read().splitlines()
+with open("config/urls.txt") as f:
+    urls = f.read().splitlines()
 
 ext = input("Format: ")
 if ext in formats:
