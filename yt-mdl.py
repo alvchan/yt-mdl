@@ -24,6 +24,8 @@ with open("config/userdata.txt") as f:
 
 with open("config/urls.txt") as f:
     urls = f.read().splitlines()
+    for i, url in enumerate(urls):
+        urls[i] = url[:url.rfind("#")].strip()
 
 ext = input("Format: ")
 if ext in formats:
