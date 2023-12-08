@@ -19,8 +19,8 @@ with open("config/userdata.txt") as f:
         username = userdata[0]
         password = userdata[1]
     else:
-        username = spoof
-        password = idsoft
+        username = 'spoof'
+        password = 'idsoft'
 
 with open("config/urls.txt") as f:
     urls = f.read().splitlines()
